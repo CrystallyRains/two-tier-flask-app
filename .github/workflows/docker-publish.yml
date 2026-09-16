@@ -21,4 +21,6 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           push: true
-          tags: "${{ secrets.DOCKER_USERNAME }}/two-tier-flask-app:latest"
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/two-tier-flask-app:latest
+            ${{ secrets.DOCKER_USERNAME }}/two-tier-flask-app:sha-${{ steps.vars.outputs.SHORT_SHA }}
